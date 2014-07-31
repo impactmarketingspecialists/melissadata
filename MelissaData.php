@@ -1,10 +1,9 @@
-<?
-require_onece("Command.php");
+<?php
 
 /**
 	The class to instiante the MellisaData API
 */
-class MellisaData
+class MelissaData
 {
 	/**
 		ID of the consumer
@@ -18,7 +17,7 @@ class MellisaData
 
 		@var string	
 	*/
-	protected $URL = "http://list.mellisadata.net/v1/Consumer/rest/Service.svc";
+	protected $URL = "http://list.melissadata.net/v1/Consumer/rest/Service.svc";
 
 	/**
 		Set the ID for the REST service
@@ -28,6 +27,16 @@ class MellisaData
 	public function setID($ID)
 	{
 		$this->ID = $ID;
+	}
+
+	/**
+		get the ID for the REST service
+
+		$param int $ID
+	*/
+	public function getID()
+	{
+		return $this->ID;
 	}
 
 	/**
@@ -56,16 +65,20 @@ class MellisaData
 		$param string $command
 		$param object $options
 	*/
-	protected function sendCommand($command, Object $options, Object $arguments = null)
+	protected function sendCommand($command, stdClass $options, stdClass $arguments = null)
 	{
 		$get = "id=" . $this->getID() . "&" . http_build_query($options);
-		$URL = "/" . $command . "?" . $get;
+		$URL = $this->getURL() . "/" . $command . "?" . $get;
 
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $URL);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-		return curl_exec($curl);
+		$return = curl_exec($curl);
+
+		curl_close($curl);
+
+		return $return;
 	}
 
 	/**
@@ -75,17 +88,21 @@ class MellisaData
 
 		@return string XML
 	*/
-	public function getZipCodeCount($zip, Object $arguments = null)
+	public function getZipCodeCount($zip, stdClass $arguments = null)
 	{
 		$command = 'get/zip';
 
 		$options = new \stdClass;
-		$options = $zip;
+		$options->zip = $zip;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
+
 
 		return $this->sendCommand($command, $options);
 	}
@@ -103,10 +120,12 @@ class MellisaData
 
 		$options = new \stdClass;
 		$options = $zip;
-
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->$key = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -119,7 +138,7 @@ class MellisaData
 
 		@return string XML
 	*/
-	public functiuon getCityCount($city, Object $arguments = null)
+	public function getCityCount($city, Object $arguments = null)
 	{
 		$command = 'get/city';
 
@@ -145,7 +164,7 @@ class MellisaData
 	{
 		$command = 'buy/city';
 
-		$options new \stdClass;
+		$options = new \stdClass;
 		$options->city = $city;
 
 		foreach($arguments AS $key=>$val)
@@ -167,7 +186,7 @@ class MellisaData
 	{
 		$command = 'get/county';
 
-		$options new \stdClass;
+		$options = new \stdClass;
 		$options->county = $county;
 
 		foreach($arguments AS $key=>$val)
@@ -412,7 +431,7 @@ class MellisaData
 
 		@return string XML
 	*/
-	public function getStateCount(Object $arguments = null)
+	public function getStatesCount(Object $arguments = null)
 	{
 		$command = 'get/States';
 
