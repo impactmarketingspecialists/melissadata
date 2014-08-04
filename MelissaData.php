@@ -65,7 +65,7 @@ class MelissaData
 		$param string $command
 		$param object $options
 	*/
-	protected function sendCommand($command, stdClass $options, stdClass $arguments = null)
+	protected function sendCommand($command, stdClass $options)
 	{
 		$get = "id=" . $this->getID() . "&" . http_build_query($options);
 		$URL = $this->getURL() . "/" . $command . "?" . $get;
@@ -88,7 +88,7 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getZipCodeCount($zip, stdClass $arguments = null)
+	public function getZipCodeCount($zip, array $arguments = null)
 	{
 		$command = 'get/zip';
 
@@ -114,17 +114,18 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getZipCodeBuyList($zip, Object $arguments = null)
+	public function getZipCodeBuyList($zip, array $arguments = null)
 	{
 		$command = 'buy/zip';
 
 		$options = new \stdClass;
-		$options = $zip;
+		$options->zip = $zip;
+
 		if($arguments)
 		{
 			foreach($arguments AS $key=>$val)
 			{
-				$options->$key = $val;
+				$options->{$key} = $val;
 			}
 		}
 
@@ -138,16 +139,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getCityCount($city, Object $arguments = null)
+	public function getCityCount($city, array $arguments = null)
 	{
 		$command = 'get/city';
 
 		$options = new \stdClass;
 		$options->city = $city;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -160,16 +164,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getBuyCityList($city, Object $arguments = null)
+	public function getBuyCityList($city, array $arguments = null)
 	{
 		$command = 'buy/city';
 
 		$options = new \stdClass;
 		$options->city = $city;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -182,16 +189,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getCountyCount($county, Object $arguments = null)
+	public function getCountyCount($county, array $arguments = null)
 	{
 		$command = 'get/county';
 
 		$options = new \stdClass;
 		$options->county = $county;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -204,16 +214,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getBuyCountyList($county, Object $arguments = null)
+	public function getBuyCountyList($county, array $arguments = null)
 	{
 		$command = 'buy/county';
 
 		$options = new \stdClass;
 		$options->county = $county;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -226,16 +239,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getStateCount($state, Object $arguments = null)
+	public function getStateCount($state, array $arguments = null)
 	{
 		$command = 'get/state';
 
 		$options = new \stdClass;
 		$options->st = $state;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -248,16 +264,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getStateBuyList($state, Object $arguments = null)
+	public function getStateBuyList($state, array $arguments = null)
 	{
 		$command = 'buy/state';
 
 		$options = new \stdClass;
 		$options->st = $state;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -271,7 +290,7 @@ class MelissaData
 		@param int $records
 		@param int $mile
 	*/
-	public function getRadiusCount($address, $zipcode, $records, $mile, Object $arguments = null)
+	public function getRadiusCount($address, $zipcode, $records, $mile, array $arguments = null)
 	{
 		$command = 'get/radius';
 
@@ -281,9 +300,12 @@ class MelissaData
 		$options->records = $records;
 		$options->mile = $mile;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -297,7 +319,7 @@ class MelissaData
 		@param int $records
 		@param int $mile
 	*/
-	public function getRadiusBuyList($address, $zipcode, $records, $mile, Object $arguments = null)
+	public function getRadiusBuyList($address, $zipcode, $records, $mile, array $arguments = null)
 	{
 		$command = 'buy/radius';
 
@@ -307,9 +329,12 @@ class MelissaData
 		$options->records = $records;
 		$options->mile = $mile;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -321,7 +346,7 @@ class MelissaData
 		@param int $zipcode
 		@param string string
 	*/
-	public function getStreetRecordCount($zipcode, Object $arguments = null)
+	public function getStreetRecordCount($zipcode, array $arguments = null)
 	{
 		$command = 'get/street';
 
@@ -329,11 +354,13 @@ class MelissaData
 		$options->zip = $zipcode;
 		$options->str = 'empresa';
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
-
 		return $this->sendCommand($command, $options);
 	}
 
@@ -343,7 +370,7 @@ class MelissaData
 		@param int $zipcode
 		@param string string
 	*/
-	public function getStreetRecordBuyList($zipcode, Object $arguments = null)
+	public function getStreetRecordBuyList($zipcode, array $arguments = null)
 	{
 		$command = 'get/street';
 
@@ -351,9 +378,12 @@ class MelissaData
 		$options->zip = $zipcode;
 		$options->str = 'empresa';
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -365,7 +395,7 @@ class MelissaData
 		@param string state
 		@param string county
 	*/
-	public function getCitiesByCountyCount($state, $county, Object $arguments = null)
+	public function getCitiesByCountyCount($state, $county, array $arguments = null)
 	{
 		$command = 'get/CitiesByCounty';
 
@@ -373,9 +403,12 @@ class MelissaData
 		$options->st = $state;
 		$options->county = $county;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -388,16 +421,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getCitiesByState($state, Object $arguments = null)
+	public function getCitiesByState($state, array $arguments = null)
 	{
 		$command = 'get/CitiesByState';
 
 		$options = new \stdClass;
 		$options->st = $state;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -410,16 +446,19 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getCountiesByState($state, Object $arguments = null)
+	public function getCountiesByState($state, array $arguments = null)
 	{
 		$command = 'get/CountiesByState';
 
 		$options = new \stdClass;
 		$options->st = $state;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
@@ -431,13 +470,16 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getStatesCount(Object $arguments = null)
+	public function getStatesCount(array $arguments = null)
 	{
 		$command = 'get/States';
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, new \stdClass);
@@ -451,16 +493,19 @@ class MelissaData
 
 		@return strin XML
 	*/
-	public function getZipsByCity($city, Object $arguments = null)
+	public function getZipsByCity($city, array $arguments = null)
 	{
 		$command = 'get/ZipsByCity';
 
 		$options = new \stdClass;
 		$options->city = $city;
 
-		foreach($arguments AS $key=>$val)
+		if($arguments)
 		{
-			$options->$key = $val;
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
 		}
 
 		return $this->sendCommand($command, $options);
