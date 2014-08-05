@@ -295,7 +295,7 @@ class MelissaData
 		$command = 'get/radius';
 
 		$options = new \stdClass;
-		$options->address = $address;
+		$options->addr = $address;
 		$options->zip = $zipcode;
 		$options->records = $records;
 		$options->mile = $mile;
@@ -324,7 +324,7 @@ class MelissaData
 		$command = 'buy/radius';
 
 		$options = new \stdClass;
-		$options->address = $address;
+		$options->addr = $address;
 		$options->zip = $zipcode;
 		$options->records = $records;
 		$options->mile = $mile;
