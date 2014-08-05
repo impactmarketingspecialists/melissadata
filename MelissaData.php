@@ -164,7 +164,7 @@ class MelissaData
 
 		@return string XML
 	*/
-	public function getBuyCityList($city, array $arguments = null)
+	public function getCityBuyList($city, array $arguments = null)
 	{
 		$command = 'buy/city';
 
