@@ -1,5 +1,6 @@
 <?php
 	include('../MelissaData.php');
+	include('ID.php');
 
 	class MelissaDataTest extends PHPUnit_Framework_TestCase
 	{
@@ -35,6 +36,30 @@
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCountiesByState'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getStatesCount'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getZipsByCity'));
+		}
+
+		public function testSendCommand()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$options = new \stdClass;
+			$options->st = 'wa';
+
+			$xml = $MelissaData->sendCommand('get/CountiesByState', $options);
+
+			$this->assertSelectRegExp('StatusCode', '/Approved/', TRUE, $xml);
+		}
+
+		public function testGetZipCodeCountTest()
+		{
+			$command = 'get/zip';
+
+			$MelissaData = new MelissaData(ID::get());
+
+			$options = new \stdClass;
+			$options->zip = $zip;
+
+			$returnXML = $this->sendCommand($command, $options);
 		}
 	}
 ?>
