@@ -20,6 +20,16 @@ class MelissaData
 	protected $URL = "http://list.melissadata.net/v1/Consumer/rest/Service.svc";
 
 	/**
+		Initialized the class and requires a ID credential to be set
+
+		@param int $ID
+	*/
+	public function __construct($ID)
+	{
+		$this->setID($ID);
+	}
+
+	/**
 		Set the ID for the REST service
 
 		$param int $ID
