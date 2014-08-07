@@ -70,12 +70,12 @@ class MelissaData
 	}
 
 	/**
-		Send command
+		Send a command to Melissa REST service
 
 		@param string $command
 		@param object $options
 	*/
-	protected function sendCommand($command, stdClass $options)
+	public function sendCommand($command, stdClass $options)
 	{
 		$get = "id=" . $this->getID() . "&" . http_build_query($options);
 		$URL = $this->getURL() . "/" . $command . "?" . $get;
