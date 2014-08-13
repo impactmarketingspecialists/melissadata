@@ -20,9 +20,19 @@ class MelissaData
 	protected $URL = "http://list.melissadata.net/v1/Consumer/rest/Service.svc";
 
 	/**
+		Initialized the class and requires a ID credential to be set
+
+		@param int $ID
+	*/
+	public function __construct($ID)
+	{
+		$this->setID($ID);
+	}
+
+	/**
 		Set the ID for the REST service
 
-		$param int $ID
+		@param int $ID
 	*/
 	public function setID($ID)
 	{
@@ -32,7 +42,7 @@ class MelissaData
 	/**
 		get the ID for the REST service
 
-		$param int $ID
+		@param int $ID
 	*/
 	public function getID()
 	{
@@ -52,7 +62,7 @@ class MelissaData
 	/**
 		Set the ID for the REST service
 
-		$param int $ID
+		@param int $ID
 	*/
 	public function setURL($URL)
 	{
@@ -60,12 +70,12 @@ class MelissaData
 	}
 
 	/**
-		Send command
+		Send a command to Melissa REST service
 
-		$param string $command
-		$param object $options
+		@param string $command
+		@param object $options
 	*/
-	protected function sendCommand($command, stdClass $options)
+	public function sendCommand($command, stdClass $options)
 	{
 		$get = "id=" . $this->getID() . "&" . http_build_query($options);
 		$URL = $this->getURL() . "/" . $command . "?" . $get;
