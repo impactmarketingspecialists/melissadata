@@ -10,3 +10,13 @@ php composer.phar install
 ```
 
 Rename config.json.dist to config.json and input your api key from Melissa Data.
+
+##Running Tests
+Tests can be run via npm or directly through grunt.
+
+```
+npm test
+```
+```
+grunt test
+```
