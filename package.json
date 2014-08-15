@@ -16,13 +16,11 @@
     }
   ],
   "devDependencies": {
-    "vows":"*",
     "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.4.4",
     "grunt-phplint":"*",
     "grunt-phpunit":"*"
   },
   "scripts": {
-    "test": "vows --spec"
+    "test": "grunt test"
   }
 }
