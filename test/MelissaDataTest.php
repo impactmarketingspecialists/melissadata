@@ -60,22 +60,6 @@
 			$options->zip = '98119';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
-
-			$doc = DOMDocument::loadXML($returnXML);
-
-			// Strip all data out of the returned XML to only hold the XML structure
-			$XML = preg_replace('/<Zip>(.+)<\/Zip>/', '<Zip></Zip>', $doc->saveXML());
-			$XML = preg_replace('/<ContactPersonInfo>(.+)<\/ContactPersonInfo>/', '<ContactPersonInfo></ContactPersonInfo>', $XML);
-		 	$XML = preg_replace('/<Details>(.+)<\/Details>/', '<Details></Details>', $XML);
-		  	$XML = preg_replace('/<IncludeAll>[a-zA-Z]+<\/IncludeAll>/', '<IncludeAll/>', $XML);
-		  	$XML = preg_replace('/<AppendToFile>[a-zA-Z]+<\/AppendToFile>/', '<AppendToFile/>', $XML);
-		  	preg_match_all('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9\-]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', $XML, $out);
-		  	$Street = preg_replace('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9\-]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', '<Street><StartNumber/><EndNumber/><Geography></Geography><Zip/><Count></Count></Street>', $out[0][0]);
-		  	$XML = preg_replace('/<CountDetails><StreetRange>(.+)<\/StreetRange><\/CountDetails>/', $Street, $XML);
-		  	$XML = preg_replace('/<Count>[0-9]+<\/Count>/', '<Count></Count>', $XML);
-		  	$XML = preg_replace('/<StatusCode>[a-zA-Z]+<\/StatusCode>/', '<StatusCode></StatusCode>', $XML);
-
-		  	$this->assertXmlStringEqualsXmlFile('XML/getZipCodeCount.xml', $XML);
 		}
 
 		public function testGetZipCodeBuyList()
@@ -88,25 +72,6 @@
 			$options->zip = '98119';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
-
-			$doc = DOMDocument::loadXML($returnXML);
-
-			$XML = preg_replace('/<Zip>(.+)<\/Zip>/', '<Zip></Zip>', $doc->saveXML());
-			$XML = preg_replace('/<ContactPersonInfo>(.+)<\/ContactPersonInfo>/', '<ContactPersonInfo></ContactPersonInfo>', $XML);
-		 	$XML = preg_replace('/<Details>(.+)<\/Details>/', '<Details></Details>', $XML);
-		  	$XML = preg_replace('/<IncludeAll>[a-zA-Z]+<\/IncludeAll>/', '<IncludeAll/>', $XML);
-		  	$XML = preg_replace('/<AppendToFile>[a-zA-Z]+<\/AppendToFile>/', '<AppendToFile/>', $XML);
-		  	preg_match_all('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9\-]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', $XML, $out);
-		  	$Street = preg_replace('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9\-]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', '<Street><StartNumber/><EndNumber/><Geography></Geography><Zip/><Count></Count></Street>', $out[0][0]);
-		  	$XML = preg_replace('/<CountDetails><StreetRange>(.+)<\/StreetRange><\/CountDetails>/', $Street, $XML);
-		  	$XML = preg_replace('/<Count>[0-9]+<\/Count>/', '<Count></Count>', $XML);
-		  	$XML = preg_replace('/<StatusCode>[a-zA-Z]+<\/StatusCode>/', '<StatusCode></StatusCode>', $XML);
-		  	$XML = preg_replace('/<Id>[0-9]+<\/Id>/', '<Id></Id>', $XML);
-		  	$XML = preg_replace('/<Usage>[0-9]+<\/Usage>/', '<Usage></Usage>', $XML);
-		  	$XML = preg_replace('/<DownloadURL>.+<\/DownloadURL>/', '<Usage></Usage>', $XML);
-		  	$XML = preg_replace('/<DeliveredQty>[0-9]+<\/DeliveredQty>/', '<DeliveredQty></DeliveredQty>', $XML);
-
-		  	$this->assertXmlStringEqualsXmlFile('XML/getZipCodeBuyList.xml', $XML);
 		}
 
 		public function testGetCityCount()
@@ -119,21 +84,6 @@
 			$options->city = 'wa;seattle';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
-
-			$doc = DOMDocument::loadXML($returnXML);
-
-			$XML = preg_replace('/<Zip>(.+)<\/Zip>/', '<Zip></Zip>', $doc->saveXML());
-			$XML = preg_replace('/<ContactPersonInfo>(.+)<\/ContactPersonInfo>/', '<ContactPersonInfo></ContactPersonInfo>', $XML);
-		 	$XML = preg_replace('/<Details>(.+)<\/Details>/', '<Details></Details>', $XML);
-		  	$XML = preg_replace('/<IncludeAll>[a-zA-Z]+<\/IncludeAll>/', '<IncludeAll/>', $XML);
-		  	$XML = preg_replace('/<AppendToFile>[a-zA-Z]+<\/AppendToFile>/', '<AppendToFile/>', $XML);
-		  	preg_match_all('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9a-zA-Z\,\-\ ]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', $XML, $out);
-		  	$Street = preg_replace('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9a-zA-Z\,\-\ ]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', '<Street><StartNumber/><EndNumber/><Geography></Geography><Zip/><Count></Count></Street>', $out[0][0]);
-		  	$XML = preg_replace('/<CountDetails><StreetRange>(.+)<\/StreetRange><\/CountDetails>/', $Street, $XML);
-		  	$XML = preg_replace('/<Count>[0-9]+<\/Count>/', '<Count></Count>', $XML);
-		  	$XML = preg_replace('/<StatusCode>[a-zA-Z]+<\/StatusCode>/', '<StatusCode></StatusCode>', $XML);
-
-		  	$this->assertXmlStringEqualsXmlFile('XML/getCityCount.xml', $XML);
 		}
 
 		public function testGetCityBuyList()
@@ -146,26 +96,6 @@
 			$options->city = 'wa;seattle';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
-
-			$doc = DOMDocument::loadXML($returnXML);
-
-			$XML = $doc->saveXML();
-			$XML = preg_replace('/<Zip>(.+)<\/Zip>/', '<Zip></Zip>', $XML);
-			$XML = preg_replace('/<ContactPersonInfo>(.+)<\/ContactPersonInfo>/', '<ContactPersonInfo></ContactPersonInfo>', $XML);
-		 	$XML = preg_replace('/<Details>(.+)<\/Details>/', '<Details></Details>', $XML);
-		  	$XML = preg_replace('/<IncludeAll>[a-zA-Z]+<\/IncludeAll>/', '<IncludeAll/>', $XML);
-		  	$XML = preg_replace('/<AppendToFile>[a-zA-Z]+<\/AppendToFile>/', '<AppendToFile/>', $XML);
-			preg_match_all('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9a-zA-Z\,\-\ ]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', $XML, $out);
-			$Street = preg_replace('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9a-zA-Z\,\-\ ]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', '<Street><StartNumber/><EndNumber/><Geography></Geography><Zip/><Count></Count></Street>', $out[0][0]);
-		  	$XML = preg_replace('/<CountDetails><StreetRange>(.+)<\/StreetRange><\/CountDetails>/', $Street, $XML);
-		  	$XML = preg_replace('/<Count>[0-9]+<\/Count>/', '<Count></Count>', $XML);
-		  	$XML = preg_replace('/<StatusCode>[a-zA-Z]+<\/StatusCode>/', '<StatusCode></StatusCode>', $XML);
-		  	$XML = preg_replace('/<Id>[0-9]+<\/Id>/', '<Id></Id>', $XML);
-		  	$XML = preg_replace('/<Usage>[0-9]+<\/Usage>/', '<Usage></Usage>', $XML);
-		  	$XML = preg_replace('/<DownloadURL>.+<\/DownloadURL>/', '<Usage></Usage>', $XML);
-		  	$XML = preg_replace('/<DeliveredQty>[0-9]+<\/DeliveredQty>/', '<DeliveredQty></DeliveredQty>', $XML);
-
-		  	$this->assertXmlStringEqualsXmlFile('XML/getCityBuyList.xml', $XML);
 		}
 	}
 ?>
