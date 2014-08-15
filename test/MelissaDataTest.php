@@ -50,16 +50,32 @@
 			$this->assertSelectRegExp('StatusCode', '/Approved/', TRUE, $xml);
 		}
 
-		public function testGetZipCodeCountTest()
+		public function testGetZipCodeCount()
 		{
 			$command = 'get/zip';
 
 			$MelissaData = new MelissaData(ID::get());
 
 			$options = new \stdClass;
-			$options->zip = $zip;
+			$options->zip = '98119';
 
-			$returnXML = $this->sendCommand($command, $options);
+			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$doc = DOMDocument::loadXML($returnXML);
+
+			// Strip all data out of the returned XML to only hold the XML structure
+			$XML = preg_replace('/<Zip>(.+)<\/Zip>/', '<Zip></Zip>', $doc->saveXML());
+			$XML = preg_replace('/<ContactPersonInfo>(.+)<\/ContactPersonInfo>/', '<ContactPersonInfo></ContactPersonInfo>', $XML);
+		 	$XML = preg_replace('/<Details>(.+)<\/Details>/', '<Details></Details>', $XML);
+		  	$XML = preg_replace('/<IncludeAll>[a-zA-Z]+<\/IncludeAll>/', '<IncludeAll/>', $XML);
+		  	$XML = preg_replace('/<AppendToFile>[a-zA-Z]+<\/AppendToFile>/', '<AppendToFile/>', $XML);
+		  	preg_match_all('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9\-]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', $XML, $out);
+		  	$Street = preg_replace('/<Street><StartNumber\/><EndNumber\/><Geography>[0-9\-]+<\/Geography><Zip\/><Count>[0-9]+<\/Count><\/Street>/', '<Street><StartNumber/><EndNumber/><Geography></Geography><Zip/><Count></Count></Street>', $out[0][0]);
+		  	$XML = preg_replace('/<CountDetails><StreetRange>(.+)<\/StreetRange><\/CountDetails>/', $Street, $XML);
+		  	$XML = preg_replace('/<Count>[0-9]+<\/Count>/', '<Count></Count>', $XML);
+		  	$XML = preg_replace('/<StatusCode>[a-zA-Z]+<\/StatusCode>/', '<StatusCode></StatusCode>', $XML);
+
+		  	$this->assertXmlStringEqualsXmlFile('XML/getZipCodeCount.xml', $XML);
 		}
 	}
 ?>
