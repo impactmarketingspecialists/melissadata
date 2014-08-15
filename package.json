@@ -1,0 +1,28 @@
+{
+  "name": "melissadata",
+  "description": "Melissa Data API implementations for PHP",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+  },
+  "contributors": [
+    {
+      "name": "Danny Graham",
+      "email": "danny.graham@impactorder.com"
+    },
+    {
+      "name": "Scott Thundercloud",
+      "email": "scott.tc@gmail.com"
+    }
+  ],
+  "devDependencies": {
+    "vows":"*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-phplint":"*",
+    "grunt-phpunit":"*"
+  },
+  "scripts": {
+    "test": "vows --spec"
+  }
+}
