@@ -60,6 +60,12 @@
 			$options->zip = '98119';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getZipCodeCount.xsd');
+
+			$this->assertTrue($schemaValidate);
 		}
 
 		public function testGetZipCodeBuyList()
@@ -72,6 +78,12 @@
 			$options->zip = '98119';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getZipCodeBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
 		}
 
 		public function testGetCityCount()
