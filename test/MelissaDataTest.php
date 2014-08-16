@@ -114,6 +114,12 @@
 			$options->city = 'wa;seattle';
 
 			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCityBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
 		}
 	}
 ?>
