@@ -173,7 +173,23 @@
 			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStateCount.xsd');
 
 			$this->assertTrue($schemaValidate);
+		}
 
+		public function testGetStateBuyList()
+		{
+			$command = 'buy/state';
+
+			$MelissaData = new MelissaData(ID::get());
+
+			$options = new \stdClass;
+			$options->st = 'wa';
+
+			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStateBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
 		}
 	}
 ?>
