@@ -121,5 +121,41 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetCountyCount()
+		{
+			$command = 'get/county';
+
+			$MelissaData = new MelissaData(ID::get());
+
+			$options = new \stdClass;
+			$options->county = 'wa;snohomish';
+
+			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountyCount.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
+
+		public function testGetCountyBuyList()
+		{
+			$command = 'buy/county';
+
+			$MelissaData = new MelissaData(ID::get());
+
+			$options = new \stdClass;
+			$options->county = 'wa;snohomish';
+
+			$returnXML = $MelissaData->sendCommand($command, $options);
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountyBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
