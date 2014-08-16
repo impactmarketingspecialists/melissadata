@@ -191,5 +191,17 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetRadiusCount()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getRadiusCount.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
