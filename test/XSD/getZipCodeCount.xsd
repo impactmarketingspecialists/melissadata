@@ -3,20 +3,19 @@
 
 <xs:element name="Consumer">
 	<xs:complexType>
-		<xs:element name="Geography">
-			<xs:complexType>
-					<xs:element name="Zip" type="xs:int"/>
-			</xs:complexType>
-		</xs:element>
-		<xs:element name="Options">
-			<xs:element name="ContactPersonInfo">
+		<xs:sequence>
+			<xs:element name="Geography">
 				<xs:complexType>
-					<xs:element name="ContactPersonInfo" type="xs:string"/>
+						<xs:sequence>
+							<xs:element name="Zip" type="xs:int"/>
+						</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="BuildingType">
 				<xs:complexType>
-					<xs:element name="Details" type="xs:string"/>
+					<xs:sequence>
+						<xs:element name="Details"/>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="HouseholdIncome">
@@ -124,32 +123,44 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="AdditionalAppend"/>
-		</xs:element>
-		<xs:element name="CountDetails">
-			<xs:element name="StreetRange">
-				<xs:element name="Street" maxOccurs="unbounded">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="StartNumber" type="xs:int"/>
-							<xs:element name="EndNumber" type="xs:int"/>
-							<xs:element name="Geography" type="xs:string"/>
-							<xs:element name="Zip" type="xs:int"/>
-							<xs:element name="Count" type="xs:int"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
+			<xs:element name="CountDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StreetRange">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Street" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="StartNumber" type="xs:int"/>
+												<xs:element name="EndNumber" type="xs:int"/>
+												<xs:element name="Geography" type="xs:string"/>
+												<xs:element name="Zip" type="xs:int"/>
+												<xs:element name="Count" type="xs:int"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
-		</xs:element>
-		<xs:element name="TotalCount">
-			<xs:complexType>
-				<xs:element name="Count" type="xs:int"/>
-			</xs:complexType>
-		</xs:element>
-		<xs:element name="Result">
-			<xs:complexType>
-				<xs:element name="StatusCode" type="xs:string"/>
-			</xs:complexType>
-		</xs:element>
+			<xs:element name="TotalCount">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Count" type="xs:int"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Result">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusCode" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:element>
 
