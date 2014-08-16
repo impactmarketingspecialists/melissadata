@@ -11,118 +11,131 @@
 						</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="BuildingType">
+			<xs:element name="Options">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Details"/>
+						<xs:element name="ContactPersonInfo">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ContactPersonInfo" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BuildingType">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Details" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HouseholdIncome">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ContactAgeGroup">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HomeOwnerRenter">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="MaritalStatus">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="LengthOfResidentCode">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HouseholdAgeCode">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NumPersonsInHousehold">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NumAdultsInHousehold">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NumChildrenInHousehold">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HouseholdCreditCardInfo">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="MailResponsiveInfo">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NetWorthModel">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TargetHomeValuationModeIn1000s">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IncludeAll" type="xs:string"/>
+									<xs:element name="AppendToFile" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AdditionalAppend"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="HouseholdIncome">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="ContactAgeGroup">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="HomeOwnerRenter">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MaritalStatus">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="LengthOfResidentCode">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="HouseholdAgeCode">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="NumPersonsInHousehold">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="NumAdultsInHousehold">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="NumChildrenInHousehold">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="HouseholdCreditCardInfo">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MailResponsiveInfo">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="NetWorthModel">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="TargetHomeValuationModeIn1000s">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="IncludeAll" type="xs:string"/>
-						<xs:element name="AppendToFile" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="AdditionalAppend"/>
 			<xs:element name="CountDetails">
 				<xs:complexType>
 					<xs:sequence>
@@ -132,10 +145,10 @@
 									<xs:element name="Street" maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="StartNumber" type="xs:int"/>
-												<xs:element name="EndNumber" type="xs:int"/>
+												<xs:element name="StartNumber"/>
+												<xs:element name="EndNumber"/>
 												<xs:element name="Geography" type="xs:string"/>
-												<xs:element name="Zip" type="xs:int"/>
+												<xs:element name="Zip"/>
 												<xs:element name="Count" type="xs:int"/>
 											</xs:sequence>
 										</xs:complexType>
