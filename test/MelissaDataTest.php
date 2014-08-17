@@ -275,5 +275,17 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetStatesCount()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getStatesCount();
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStatesCount.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
