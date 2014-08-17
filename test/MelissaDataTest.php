@@ -215,5 +215,17 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetStreetRecordCount()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getStreetRecordCount('98119', 'Republican');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStreetRecordCount.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
