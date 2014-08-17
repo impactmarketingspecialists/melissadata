@@ -356,13 +356,13 @@ class MelissaData
 		@param int $zipcode
 		@param string string
 	*/
-	public function getStreetRecordCount($zipcode, array $arguments = null)
+	public function getStreetRecordCount($zipcode, $street, array $arguments = null)
 	{
 		$command = 'get/street';
 
 		$options = new \stdClass;
 		$options->zip = $zipcode;
-		$options->str = 'empresa';
+		$options->str = $street;
 
 		if($arguments)
 		{
