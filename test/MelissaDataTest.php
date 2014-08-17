@@ -203,5 +203,17 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetRadiusBuyList()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getRadiusBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
