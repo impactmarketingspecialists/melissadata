@@ -287,5 +287,17 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetZipsByCity()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getZipsByCity('wa;seattle');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getZipsByCity.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
