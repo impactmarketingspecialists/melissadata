@@ -382,7 +382,7 @@ class MelissaData
 	*/
 	public function getStreetRecordBuyList($zipcode, $street, array $arguments = null)
 	{
-		$command = 'get/street';
+		$command = 'buy/street';
 
 		$options = new \stdClass;
 		$options->zip = $zipcode;
