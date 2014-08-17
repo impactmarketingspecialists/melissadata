@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="Others">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Geography">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="State" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Cities">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="City" type="xs:string" maxOccurs="unbounded"/>
+							<xs:element name="Count" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TotalCount">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Count" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Result">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="StatusCode" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

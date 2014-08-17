@@ -227,5 +227,53 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		public function testGetStreetBuyList()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getStreetRecordBuyList('98119', 'Republican');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStreetRecordBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
+
+		public function testGetCitiesByCountyCount()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getCitiesByCountyCount('wa', 'snohomish');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCitiesByCountyCount.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
+
+		public function testGetCitiesByState()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getCitiesByState('wa');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCitiesByState.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
+
+		public function testGetCountiesByState()
+		{
+			$MelissaData = new MelissaData(ID::get());
+
+			$returnXML = $MelissaData->getCountiesByState('wa');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountiesByState.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
