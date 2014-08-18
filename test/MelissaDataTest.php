@@ -129,10 +129,9 @@
 
 			$MelissaData = new MelissaData(ID::get());
 
-			$options = new \stdClass;
-			$options->county = 'wa;snohomish';
+			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
 
-			$returnXML = $MelissaData->getCountyCount('wa;snohomish');
+			$DOMDocument = DOMDocument::loadXML($returnXML);
 			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountyBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
@@ -144,7 +143,7 @@
 
 			$MelissaData = new MelissaData(ID::get());
 
-			$returnXML = $MelissaData->getStateCount('wa;seattle');
+			$returnXML = $MelissaData->getStateCount('wa');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
 			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStateCount.xsd');
