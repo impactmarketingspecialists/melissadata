@@ -1,6 +1,5 @@
 <?php
-	include('../MelissaData.php');
-	include('ID.php');
+	include('../MelissaDataConsumer.php');
 
 	class MelissaDataTest extends PHPUnit_Framework_TestCase
 	{
@@ -63,7 +62,7 @@
 			$returnXML = $MelissaData->getZipCodeCount('98119');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getZipCodeCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getZipCodeCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -81,7 +80,7 @@
 			$returnXML = $MelissaData->getZipCodeBuyList('98119');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getZipCodeBuyList.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getZipCodeBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -96,7 +95,7 @@
 			$returnXML = $MelissaData->getCityCount('wa;seattle');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCityCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCityCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -111,7 +110,7 @@
 			$returnXML = $MelissaData->getCityBuyList('wa;seattle');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCityBuyList.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCityBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -126,7 +125,7 @@
 			$returnXML = $MelissaData->getCountyCount('wa;snohomish');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountyCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCountyCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -141,7 +140,7 @@
 			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountyBuyList.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCountyBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -156,7 +155,7 @@
 			$returnXML = $MelissaData->getStateCount('wa');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStateCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getStateCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -171,7 +170,7 @@
 			$returnXML = $MelissaData->getStateBuyList('wa');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStateBuyList.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getStateBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -186,7 +185,7 @@
 			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getRadiusCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getRadiusCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -201,7 +200,7 @@
 			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getRadiusBuyList.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getRadiusBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -216,7 +215,7 @@
 			$returnXML = $MelissaData->getStreetRecordCount('98119', 'Republican');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStreetRecordCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getStreetRecordCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -231,7 +230,7 @@
 			$returnXML = $MelissaData->getStreetRecordBuyList('98119', 'Republican');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStreetRecordBuyList.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getStreetRecordBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -246,7 +245,7 @@
 			$returnXML = $MelissaData->getCitiesByCountyCount('wa', 'snohomish');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCitiesByCountyCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCitiesByCountyCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -261,7 +260,7 @@
 			$returnXML = $MelissaData->getCitiesByState('wa');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCitiesByState.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCitiesByState.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -276,7 +275,7 @@
 			$returnXML = $MelissaData->getCountiesByState('wa');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getCountiesByState.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getCountiesByState.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -291,7 +290,7 @@
 			$returnXML = $MelissaData->getStatesCount();
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getStatesCount.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getStatesCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -306,7 +305,7 @@
 			$returnXML = $MelissaData->getZipsByCity('wa;seattle');
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/getZipsByCity.xsd');
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Consumer/getZipsByCity.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
