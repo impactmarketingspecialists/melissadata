@@ -40,7 +40,10 @@
 
 		public function testSendCommand()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$options = new \stdClass;
 			$options->st = 'wa';
@@ -52,9 +55,10 @@
 
 		public function testGetZipCodeCount()
 		{
-			$command = 'get/zip';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getZipCodeCount('98119');
 
@@ -66,9 +70,10 @@
 
 		public function testGetZipCodeBuyList()
 		{
-			$command = 'buy/zip';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$options = new \stdClass;
 			$options->zip = '98119';
@@ -83,9 +88,10 @@
 
 		public function testGetCityCount()
 		{
-			$command = 'get/city';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCityCount('wa;seattle');
 
@@ -97,9 +103,10 @@
 
 		public function testGetCityBuyList()
 		{
-			$command = 'buy/city';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCityBuyList('wa;seattle');
 
@@ -111,9 +118,10 @@
 
 		public function testGetCountyCount()
 		{
-			$command = 'get/county';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountyCount('wa;snohomish');
 
@@ -125,9 +133,10 @@
 
 		public function testGetCountyBuyList()
 		{
-			$command = 'buy/county';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
 
@@ -139,9 +148,10 @@
 
 		public function testGetStateCount()
 		{
-			$command = 'get/state';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getStateCount('wa');
 
@@ -153,9 +163,10 @@
 
 		public function testGetStateBuyList()
 		{
-			$command = 'buy/state';
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData(ID::get());
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getStateBuyList('wa');
 
@@ -167,7 +178,10 @@
 
 		public function testGetRadiusCount()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
@@ -179,7 +193,10 @@
 
 		public function testGetRadiusBuyList()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
@@ -191,7 +208,10 @@
 
 		public function testGetStreetRecordCount()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getStreetRecordCount('98119', 'Republican');
 
@@ -203,7 +223,10 @@
 
 		public function testGetStreetBuyList()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getStreetRecordBuyList('98119', 'Republican');
 
@@ -215,7 +238,10 @@
 
 		public function testGetCitiesByCountyCount()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCitiesByCountyCount('wa', 'snohomish');
 
@@ -227,7 +253,10 @@
 
 		public function testGetCitiesByState()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCitiesByState('wa');
 
@@ -239,7 +268,10 @@
 
 		public function testGetCountiesByState()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountiesByState('wa');
 
@@ -251,7 +283,10 @@
 
 		public function testGetStatesCount()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getStatesCount();
 
@@ -263,7 +298,10 @@
 
 		public function testGetZipsByCity()
 		{
-			$MelissaData = new MelissaData(ID::get());
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaData($json->APIKEY);
 
 			$returnXML = $MelissaData->getZipsByCity('wa;seattle');
 

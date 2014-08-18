@@ -24,9 +24,16 @@ class MelissaData
 
 		@param int $ID
 	*/
-	public function __construct($ID)
+	public function __construct($ID = null)
 	{
-		$this->setID($ID);
+		if($ID == null)
+		{
+			$jsonContents = file_get_contents('config.json');
+			$json = json_decode($jsonContents);
+			$this->setID($json->APIKEY);
+		} else {
+			$this->setID($ID);
+		}
 	}
 
 	/**
