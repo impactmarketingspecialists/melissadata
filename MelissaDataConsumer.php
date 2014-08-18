@@ -47,7 +47,7 @@ class MelissaData
 	}
 
 	/**
-		get the ID for the REST service
+		Get the ID for the REST service
 
 		@param int $ID
 	*/
@@ -57,7 +57,7 @@ class MelissaData
 	}
 
 	/**
-		Set the ID for the REST service
+		Get the URL for the REST service
 
 		@return string
 	*/
@@ -302,10 +302,10 @@ class MelissaData
 	/**
 		Radius requests will return the nearest records to the selected address up tto 100,00 records (65,535).
 
-		@param string $address
-		@param int @zipcode
-		@param int $records
-		@param int $mile
+		@param string address
+		@param int zipcode
+		@param int records
+		@param int mile
 	*/
 	public function getRadiusCount($address, $zipcode, $records, $mile, array $arguments = null)
 	{
@@ -331,10 +331,10 @@ class MelissaData
 	/**
 		Radius requests will return the nearest records to the selected address up tto 100,00 records (65,535).
 
-		@param string $address
-		@param int @zipcode
-		@param int $records
-		@param int $mile
+		@param string address
+		@param int zipcode
+		@param int records
+		@param int mile
 	*/
 	public function getRadiusBuyList($address, $zipcode, $records, $mile, array $arguments = null)
 	{
@@ -360,7 +360,7 @@ class MelissaData
 	/**
 		Strees reqiests will return records from a specified street within a specified ZIP code
 
-		@param int $zipcode
+		@param int zipcode
 		@param string string
 	*/
 	public function getStreetRecordCount($zipcode, $street, array $arguments = null)
@@ -384,7 +384,7 @@ class MelissaData
 	/**
 		Strees reqiests will return records from a specified street within a specified ZIP code
 
-		@param int $zipcode
+		@param int zipcode
 		@param string string
 	*/
 	public function getStreetRecordBuyList($zipcode, $street, array $arguments = null)
@@ -506,7 +506,7 @@ class MelissaData
 		ZIPs by City request returnes a complete list of ZIP Codes within the specified city.
 		States are separated from a city with a semi-colon.  Multiple entries are delimited with a comma
 
-		@param string $city
+		@param string city
 
 		@return strin XML
 	*/
