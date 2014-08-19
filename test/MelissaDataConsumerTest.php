@@ -3,6 +3,9 @@
 
 	class MelissaDataTest extends PHPUnit_Framework_TestCase
 	{
+		/**
+			Test to see if all methods are in the melissa data consumer class
+		*/
 		public function testClassAndMethodNames()
 		{
 			$this->assertTrue(class_exists('MelissaData'));
@@ -37,6 +40,10 @@
 			$this->assertTrue($MelissaDataReflection->hasMethod('getZipsByCity'));
 		}
 
+
+		/**
+			Test to see if the send command methods works.
+		*/
 		public function testSendCommand()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -52,6 +59,9 @@
 			$this->assertSelectRegExp('StatusCode', '/Approved/', TRUE, $xml);
 		}
 
+		/**
+			Tests to see if the zip code count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetZipCodeCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -67,6 +77,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the zip code buy list method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetZipCodeBuyList()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -85,6 +98,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get city count method works and is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetCityCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -100,6 +116,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get city buy list method is returning the right xml structure
+		*/
 		public function testGetCityBuyList()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -115,6 +134,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get county count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetCountyCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -130,6 +152,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the zip code count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetCountyBuyList()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -145,6 +170,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get state count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetStateCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -160,6 +188,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get state buy list method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetStateBuyList()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -175,6 +206,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get radius count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetRadiusCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -190,6 +224,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get radius buy list is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetRadiusBuyList()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -205,6 +242,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get street record count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetStreetRecordCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -220,6 +260,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the street buy list method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetStreetBuyList()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -235,6 +278,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the zip code count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetCitiesByCountyCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -250,6 +296,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get cities by state method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetCitiesByState()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -265,6 +314,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get countries by state method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetCountiesByState()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -280,6 +332,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get states count method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetStatesCount()
 		{
 			$jsonContents = file_get_contents('../config.json');
@@ -295,6 +350,9 @@
 			$this->assertTrue($schemaValidate);
 		}
 
+		/**
+			Tests to see if the get zipcodes by city method is returning the right xml structure.  Assert true if so.
+		*/
 		public function testGetZipsByCity()
 		{
 			$jsonContents = file_get_contents('../config.json');
