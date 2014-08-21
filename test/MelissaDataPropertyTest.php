@@ -23,7 +23,7 @@
 			$this->assertTrue($MelissaDataReflection->hasMethod('sendCommand'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getZipCodeCount'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getZipcodeBuyList'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getCity'));
+			$this->assertTrue($MelissaDataReflection->hasMethod('getCityCount'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCityBuyList'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCounty'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCountyBuyList'));
@@ -66,6 +66,24 @@
 
 			$DOMDocument = DOMDocument::loadXML($returnXML);
 			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getZipCodeBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
+
+		/**
+			Tests to see if the get city count method works and is returning the right xml structure.  Assert true if so.
+		*/
+		public function testGetCityCount()
+		{
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaDataProperty($json->APIKEY);
+
+			$returnXML = $MelissaData->getCityCount('wa;seattle');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getCityCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}

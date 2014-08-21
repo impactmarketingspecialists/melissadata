@@ -128,7 +128,7 @@ class MelissaDataProperty
 		return $this->sendCommand($command, $options);
 	}
 
-	public function getCity($city, array $arguments=null)
+	public function getCityCount($city, array $arguments=null)
 	{
 		$command = 'get/city';
 
