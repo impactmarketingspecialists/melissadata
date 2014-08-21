@@ -17,7 +17,7 @@ class MelissaDataProperty
 
 		@var string	
 	*/
-	protected $URL = "http://list.melissadata.net/v1/Property/rest/Service.svc";
+	protected $URL = "http://rclist.melissadata.net/v1/Property/rest/Service.svc";
 
 	/**
 		Initialized the class and requires a ID credential to be set
@@ -102,6 +102,42 @@ class MelissaDataProperty
 		if($arguments)
 		{
 			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
+		}
+
+		return $this->sendCommand($command, $options);
+	}
+
+	public function getCity($city, array $arguments=null)
+	{
+		$command = 'get/city';
+
+		$options = new \stdClass;
+		$options->city = $city;
+
+		if($arguments)
+		{
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
+		}
+
+		return $this->sendCommand($command, $options);
+	}
+
+	public function getCounty($county, array $arguments=null)
+	{
+		$command = 'get/county';
+
+		$options = new \stdClass;
+		$options->county = $county;
+
+		if($arguments)
+		{
+			foreach ($argumentsr as $key=>$val) 
 			{
 				$options->{$key} = $val;
 			}
