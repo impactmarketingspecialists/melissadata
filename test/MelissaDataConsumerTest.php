@@ -1,16 +1,16 @@
 <?php
 	include('../MelissaDataConsumer.php');
 
-	class MelissaDataTest extends PHPUnit_Framework_TestCase
+	class MelissaDataConsumerTest extends PHPUnit_Framework_TestCase
 	{
 		/**
 			Test to see if all methods are in the melissa data consumer class
 		*/
 		public function testClassAndMethodNames()
 		{
-			$this->assertTrue(class_exists('MelissaData'));
+			$this->assertTrue(class_exists('MelissaDataConsumer'));
 
-			$MelissaDataReflection = new ReflectionClass("MelissaData");
+			$MelissaDataReflection = new ReflectionClass("MelissaDataConsumer");
 
 			$this->assertTrue($MelissaDataReflection->hasProperty("ID"));
 			$this->assertTrue($MelissaDataReflection->hasProperty("URL"));
@@ -49,7 +49,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$options = new \stdClass;
 			$options->st = 'wa';
@@ -67,7 +67,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getZipCodeCount('98119');
 
@@ -85,7 +85,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$options = new \stdClass;
 			$options->zip = '98119';
@@ -106,7 +106,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCityCount('wa;seattle');
 
@@ -124,7 +124,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCityBuyList('wa;seattle');
 
@@ -142,7 +142,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountyCount('wa;snohomish');
 
@@ -160,7 +160,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
 
@@ -178,7 +178,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStateCount('wa');
 
@@ -196,7 +196,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStateBuyList('wa');
 
@@ -214,7 +214,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
@@ -232,7 +232,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
@@ -250,7 +250,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStreetRecordCount('98119', 'Republican');
 
@@ -268,7 +268,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStreetRecordBuyList('98119', 'Republican');
 
@@ -286,7 +286,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCitiesByCountyCount('wa', 'snohomish');
 
@@ -304,7 +304,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCitiesByState('wa');
 
@@ -322,7 +322,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountiesByState('wa');
 
@@ -340,7 +340,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStatesCount();
 
@@ -358,7 +358,7 @@
 			$jsonContents = file_get_contents('../config.json');
 			$json = json_decode($jsonContents);
 
-			$MelissaData = new MelissaData($json->APIKEY);
+			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getZipsByCity('wa;seattle');
 

@@ -3,7 +3,7 @@
 /**
 	The class to instiante the MellisaData API
 */
-class MelissaData
+class MelissaDataConsumer
 {
 	/**
 		ID of the consumer
