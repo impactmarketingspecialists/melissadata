@@ -146,6 +146,24 @@ class MelissaDataProperty
 		return $this->sendCommand($command, $options);
 	}
 
+	public function getCityBuyList($city, array $arguments=null)
+	{
+		$command = 'buy/city';
+
+		$options = new \stdClass;
+		$options->city = $city;
+
+		if($arguments)
+		{
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
+		}
+
+		return $this->sendCommand($command, $options);
+	}
+
 	public function getCounty($county, array $arguments=null)
 	{
 		$command = 'get/county';
