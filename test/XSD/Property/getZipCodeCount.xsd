@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Property">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Geography">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Zip" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Option">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OwnerTypes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Details" type="xs:string"/>
+										<xs:element name="AppendToFile" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CountDetails">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Area" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Geography" type="xs:string"/>
+										<xs:element name="Count" type="xs:int"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TotalCount">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Count" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Result">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="StatusCode" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

@@ -8,7 +8,7 @@
 		*/
 		public function testClassAndMethodNames()
 		{
-			$this->assertTrue(class_exists('MelissaDataConsumer'));
+			$this->assertTrue(class_exists('MelissaDataProperty'));
 
 			$MelissaDataReflection = new ReflectionClass("MelissaDataProperty");
 
@@ -21,7 +21,7 @@
 			$this->assertTrue($MelissaDataReflection->hasMethod('getURL'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('setURL'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('sendCommand'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getZipcode'));
+			$this->assertTrue($MelissaDataReflection->hasMethod('getZipCodeCount'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getZipcodeBuyList'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCity'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCityBuyList'));
@@ -29,6 +29,24 @@
 			$this->assertTrue($MelissaDataReflection->hasMethod('getCountyBuyList'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getRadiusCount'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('getRadiusBuyList'));
+		}
+
+		/**
+			Tests to see if the zip code count method is returning the right xml structure.  Assert true if so.
+		*/
+		public function testGetZipCodeCount()
+		{
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaDataProperty($json->APIKEY);
+
+			$returnXML = $MelissaData->getZipCodeCount('98119');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getZipCodeCount.xsd');
+
+			$this->assertTrue($schemaValidate);
 		}
 	}
 ?>

@@ -92,7 +92,7 @@ class MelissaDataProperty
 		return $return;
 	}
 
-	public function getZipcode($zipcode, array $arguments=null)
+	public function getZipCodeCount($zipcode, array $arguments=null)
 	{
 		$command = 'get/zip';
 
