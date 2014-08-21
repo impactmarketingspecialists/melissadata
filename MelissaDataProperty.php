@@ -110,6 +110,24 @@ class MelissaDataProperty
 		return $this->sendCommand($command, $options);
 	}
 
+	public function getZipcodeBuyList($zipcode, array $arguments=null)
+	{
+		$command = 'buy/zip';
+
+		$options = new \stdClass;
+		$options->zip = $zipcode;
+
+		if($arguments)
+		{
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
+		}
+
+		return $this->sendCommand($command, $options);
+	}
+
 	public function getCity($city, array $arguments=null)
 	{
 		$command = 'get/city';
