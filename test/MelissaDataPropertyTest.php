@@ -105,5 +105,23 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		/**
+			Tests to see if the zip code count method is returning the right xml structure.  Assert true if so.
+		*/
+		public function testGetCountyBuyList()
+		{
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaDataProperty($json->APIKEY);
+
+			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getCountyBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
