@@ -141,5 +141,23 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		/**
+			Tests to see if the get radius buy list is returning the right xml structure.  Assert true if so.
+		*/
+		public function testGetRadiusBuyList()
+		{
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaDataProperty($json->APIKEY);
+
+			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getRadiusBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
