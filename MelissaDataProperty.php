@@ -164,7 +164,7 @@ class MelissaDataProperty
 		return $this->sendCommand($command, $options);
 	}
 
-	public function getCounty($county, array $arguments=null)
+	public function getCountyCount($county, array $arguments=null)
 	{
 		$command = 'get/county';
 

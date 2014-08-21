@@ -6,7 +6,7 @@
 				<xs:element name="Geography">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="City" type="xs:string"/>
+							<xs:element name="County" type="xs:string"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
