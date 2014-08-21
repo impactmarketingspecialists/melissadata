@@ -199,4 +199,25 @@ class MelissaDataProperty
 
 		return $this->sendCommand($command, $options);
 	}
+
+	public function getRadiusCount($address, $zipcode, $records, $mile, array $arguments = null)
+	{
+		$command = 'get/radius';
+
+		$options = new \stdClass;
+		$options->addr = $address;
+		$options->zip = $zipcode;
+		$options->records = $records;
+		$options->mile = $mile;
+
+		if($arguments)
+		{
+			foreach($arguments AS $key=>$val)
+			{
+				$options->{$key} = $val;
+			}
+		}
+
+		return $this->sendCommand($command, $options);
+	}
 }
