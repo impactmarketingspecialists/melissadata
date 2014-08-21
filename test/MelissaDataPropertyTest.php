@@ -123,5 +123,23 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		/**
+			Tests to see if the get radius count method is returning the right xml structure.  Assert true if so.
+		*/
+		public function testGetRadiusCount()
+		{
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaDataProperty($json->APIKEY);
+
+			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getRadiusCount.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
