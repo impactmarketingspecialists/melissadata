@@ -48,5 +48,26 @@
 
 			$this->assertTrue($schemaValidate);
 		}
+
+		/**
+			Tests to see if the zip code buy list method is returning the right xml structure.  Assert true if so.
+		*/
+		public function testGetZipCodeBuyList()
+		{
+			$jsonContents = file_get_contents('../config.json');
+			$json = json_decode($jsonContents);
+
+			$MelissaData = new MelissaDataProperty($json->APIKEY);
+
+			$options = new \stdClass;
+			$options->zip = '98119';
+
+			$returnXML = $MelissaData->getZipCodeBuyList('98119');
+
+			$DOMDocument = DOMDocument::loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getZipCodeBuyList.xsd');
+
+			$this->assertTrue($schemaValidate);
+		}
 	}
 ?>
