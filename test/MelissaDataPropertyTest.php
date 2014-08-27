@@ -43,8 +43,9 @@
 
 			$returnXML = $MelissaData->getZipCodeCount('98119');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getZipCodeCount.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getZipCodeCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -64,8 +65,9 @@
 
 			$returnXML = $MelissaData->getZipCodeBuyList('98119');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getZipCodeBuyList.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getZipCodeBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -82,8 +84,9 @@
 
 			$returnXML = $MelissaData->getCityCount('wa;seattle');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getCityCount.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getCityCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -100,8 +103,9 @@
 
 			$returnXML = $MelissaData->getCountyCount('wa;snohomish');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getCountyCount.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getCountyCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -118,8 +122,9 @@
 
 			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getCountyBuyList.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getCountyBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -136,8 +141,9 @@
 
 			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getRadiusCount.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getRadiusCount.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
@@ -154,8 +160,9 @@
 
 			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
 
-			$DOMDocument = DOMDocument::loadXML($returnXML);
-			$schemaValidate = $DOMDocument->schemaValidate('XSD/Property/getRadiusBuyList.xsd');
+			$DOMDocument = new DOMDocument();
+			$DOMDocument->loadXML($returnXML);
+			$schemaValidate = $DOMDocument->schemaValidate('./test/XSD/Property/getRadiusBuyList.xsd');
 
 			$this->assertTrue($schemaValidate);
 		}
