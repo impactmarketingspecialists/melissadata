@@ -22,8 +22,17 @@ This package is intended for distribution via Composer. Until acceptance in the 
     }
 }
 ```
+##Usage
+```
+<?php
+	include('./MelissaDataConsumer.php');
+	$MelissaData = new MelissaDataConsumer($APIKEY);
+	$returnXML = $MelissaData->getZipCodeCount('98119');
+?>
+```
 
-##Intial Setup
+##Builds and Testing
+###Intial Setup
 You'll need to get the node and php dependencies setup first; run:
 
 ```
@@ -32,7 +41,7 @@ curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
 
-##Running Tests
+###Running Tests
 Tests can be run via npm or directly through grunt. Before running tests, rename _config.json.dist_ to _config.json_ and input a valid API key provided by Melissa Data.
 
 ```
@@ -43,5 +52,5 @@ or
 grunt test
 ```
 
-##Tests and Coverage
+###Tests and Coverage
 Testing is not intended to provide full code coverage, rather to ensure that all implementation methods are functioning properly and to detect changes in API responses from Melissa Data. XSDs are generated for each call against the Melissa Data API and testing simply validates that responses still match that schema. If there is a change in the schema it is unlikely that it will impact the functioning of this library, but implementations using this library will need to be adjusted to properly handle the changed response data they will receive.
