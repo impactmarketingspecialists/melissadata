@@ -116,7 +116,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="NetWorthModel">
+						<xs:element name="TargetNetWorth">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="IncludeAll" type="xs:string"/>
@@ -124,7 +124,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="TargetHomeValuationModeIn1000s">
+						<xs:element name="TargetHomeMarketValue">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="IncludeAll" type="xs:string"/>
