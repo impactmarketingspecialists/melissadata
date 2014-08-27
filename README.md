@@ -4,9 +4,23 @@ This library is an implementation of Melissa Data's Consumer and Property APIs i
 ##Installation
 This package is intended for distribution via Composer. Until acceptance in the Composer channel's, this repository may be linked directly in your composer.json by adding:
 ```
+{
+	"repositories": [{
+    "type": "package",
+    "package": {
+        "name": "impactmarketingspecialists/melissadata",
+        "version": "0.1.0",
+        "source": {
+            "url": "https://github.com/impactmarketingspecialists/melissadata.git",
+            "type": "git",
+        	"reference": "master"
+        }
+        }
+    }],
     "require": {
-        "melissadata": "https://github.com/impactmarketingspecialists/melissadata.git"
+    "impactmarketingspecialists/melissadata": "0.1.*"
     }
+}
 ```
 
 ##Intial Setup
