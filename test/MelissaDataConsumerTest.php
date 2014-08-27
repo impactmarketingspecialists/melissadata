@@ -1,5 +1,5 @@
 <?php
-	include('../MelissaDataConsumer.php');
+	include('./MelissaDataConsumer.php');
 
 	class MelissaDataConsumerTest extends PHPUnit_Framework_TestCase
 	{
@@ -46,7 +46,7 @@
 		*/
 		public function testSendCommand()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -64,7 +64,7 @@
 		*/
 		public function testGetZipCodeCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -82,7 +82,7 @@
 		*/
 		public function testGetZipCodeBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -103,7 +103,7 @@
 		*/
 		public function testGetCityCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -121,7 +121,7 @@
 		*/
 		public function testGetCityBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -139,7 +139,7 @@
 		*/
 		public function testGetCountyCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -157,7 +157,7 @@
 		*/
 		public function testGetCountyBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -175,7 +175,7 @@
 		*/
 		public function testGetStateCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -193,7 +193,7 @@
 		*/
 		public function testGetStateBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -211,7 +211,7 @@
 		*/
 		public function testGetRadiusCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -229,7 +229,7 @@
 		*/
 		public function testGetRadiusBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -247,7 +247,7 @@
 		*/
 		public function testGetStreetRecordCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -265,7 +265,7 @@
 		*/
 		public function testGetStreetBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -283,7 +283,7 @@
 		*/
 		public function testGetCitiesByCountyCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -301,7 +301,7 @@
 		*/
 		public function testGetCitiesByState()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -319,7 +319,7 @@
 		*/
 		public function testGetCountiesByState()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -337,7 +337,7 @@
 		*/
 		public function testGetStatesCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
@@ -355,7 +355,7 @@
 		*/
 		public function testGetZipsByCity()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);

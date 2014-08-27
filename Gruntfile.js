@@ -10,12 +10,16 @@ module.exports = function(grunt) {
     },
     phpunit: {
       classes: {
-          dir: './'
+          dir: './test'
       },
       options: {
           bin: 'vendor/bin/phpunit',
           bootstrap: 'test/autoload.php',
-          colors: true
+          colors: true,
+          verbose: true,
+          processIsolation: true,
+          debug: true,
+          followOutput: true
       }
     }
   });

@@ -21,6 +21,6 @@
     "grunt-phpunit":"*"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test -v"
   }
 }

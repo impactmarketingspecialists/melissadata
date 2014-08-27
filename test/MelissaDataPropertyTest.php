@@ -1,5 +1,5 @@
 <?php
-	include('../MelissaDataProperty.php');
+	include('./MelissaDataProperty.php');
 
 	class MelissaDataPropertyTest extends PHPUnit_Framework_TestCase
 	{
@@ -36,7 +36,7 @@
 		*/
 		public function testGetZipCodeCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
@@ -54,7 +54,7 @@
 		*/
 		public function testGetZipCodeBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
@@ -75,7 +75,7 @@
 		*/
 		public function testGetCityCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
@@ -93,7 +93,7 @@
 		*/
 		public function testGetCountyCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
@@ -111,7 +111,7 @@
 		*/
 		public function testGetCountyBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
@@ -129,7 +129,7 @@
 		*/
 		public function testGetRadiusCount()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
@@ -147,7 +147,7 @@
 		*/
 		public function testGetRadiusBuyList()
 		{
-			$jsonContents = file_get_contents('../config.json');
+			$jsonContents = file_get_contents('./config.json');
 			$json = json_decode($jsonContents);
 
 			$MelissaData = new MelissaDataProperty($json->APIKEY);
