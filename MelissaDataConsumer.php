@@ -17,15 +17,16 @@ class MelissaDataConsumer
 
 		@var string	
 	*/
-	protected $URL = "http://list.melissadata.net/v1/Consumer/rest/Service.svc";
+	protected $URL = "http://rclist.melissadata.net/v1/Consumer/rest/Service.svc";
 
 	/**
 		Initialized the class and requires a ID credential to be set
 
 		@param int $ID
 	*/
-	public function __construct($ID = null)
+	public function __construct($ID = null, $mode='test')
 	{
+		if ($mode === 'production') $this->URL = "http://list.melissadata.net/v1/Consumer/rest/Service.svc";
 		if($ID == null)
 		{
 			$jsonContents = file_get_contents('config.json');

@@ -24,8 +24,9 @@ class MelissaDataProperty
 
 		@param int $ID
 	*/
-	public function __construct($ID = null)
+	public function __construct($ID = null, $mode='test')
 	{
+		if ($mode === 'production') $this->URL = "http://list.melissadata.net/v1/Property/rest/Service.svc";
 		if($ID == null)
 		{
 			$jsonContents = file_get_contents('config.json');
