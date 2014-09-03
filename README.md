@@ -23,10 +23,11 @@ This package is intended for distribution via Composer. Until acceptance in the 
 }
 ```
 ##Usage
+When instantiating, you must provide a valid API key provided by Melissa Data, and you must specifiy a mode. By default, test mode is selected and API calls are sent to Melissa Data's test server. To make live calls, you must specify 'production' mode.
 ```
 <?php
 	include('./MelissaDataConsumer.php');
-	$MelissaData = new MelissaDataConsumer($APIKEY);
+	$MelissaData = new MelissaDataConsumer($APIKEY , 'production');
 	$returnXML = $MelissaData->getZipCodeCount('98119');
 ?>
 ```
