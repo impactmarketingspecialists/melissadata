@@ -3,12 +3,17 @@
 
 	class MelissaDataConsumerTest extends PHPUnit_Framework_TestCase
 	{
+
+		public $debug_write = false;
+
 		/**
 			Test to see if all methods are in the melissa data consumer class
 		*/
 		public function testClassAndMethodNames()
 		{
 			$this->assertTrue(class_exists('MelissaDataConsumer'));
+
+			if ($this->debug_write === true) mkdir('./test/tmp');
 
 			$MelissaDataReflection = new ReflectionClass("MelissaDataConsumer");
 
@@ -74,7 +79,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getZipCodeCount('98119');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -97,7 +102,7 @@
 			$options->zip = '98119';
 
 			$returnXML = $MelissaData->getZipCodeBuyList('98119');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -117,7 +122,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCityCount('wa;seattle');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -137,7 +142,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCityBuyList('wa;seattle');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -157,7 +162,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountyCount('wa;snohomish');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -177,7 +182,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getCountyBuyList('wa;snohomish');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -197,7 +202,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStateCount('wa');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -217,7 +222,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStateBuyList('wa');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -237,7 +242,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getRadiusCount('Pier 52, 801 Alaskan Way', '98104', '5', '1');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -257,7 +262,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getRadiusBuyList('Pier 52, 801 Alaskan Way', '98104', '5', '1');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -277,7 +282,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStreetRecordCount('98119', 'Republican');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
@@ -297,7 +302,7 @@
 			$MelissaData = new MelissaDataConsumer($json->APIKEY);
 
 			$returnXML = $MelissaData->getStreetRecordBuyList('98119', 'Republican');
-			file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
+			if ($this->debug_write === true) file_put_contents('./test/tmp/'.__METHOD__.'.xml', $returnXML);
 
 			$DOMDocument = new DOMDocument();
 			$DOMDocument->loadXML($returnXML);
