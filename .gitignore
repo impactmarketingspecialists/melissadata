@@ -1,4 +1,5 @@
 test/ID.php
+test/tmp
 config.json
 node_modules/**
 vendor/**
