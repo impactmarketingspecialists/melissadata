@@ -108,14 +108,15 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="MailResponsiveInfo">
+						<!-- This appears to have gone away -->
+						<!-- <xs:element name="MailResponsiveInfo">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="IncludeAll" type="xs:string"/>
 									<xs:element name="AppendToFile" type="xs:string"/>
 								</xs:sequence>
 							</xs:complexType>
-						</xs:element>
+						</xs:element> -->
 						<xs:element name="TargetNetWorth">
 							<xs:complexType>
 								<xs:sequence>
