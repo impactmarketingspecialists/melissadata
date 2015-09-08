@@ -26,14 +26,14 @@
 			$this->assertTrue($MelissaDataReflection->hasMethod('getURL'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('setURL'));
 			$this->assertTrue($MelissaDataReflection->hasMethod('sendCommand'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getZipCodeCount'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getZipcodeBuyList'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getCityCount'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getCityBuyList'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getCountyCount'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getCountyBuyList'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getRadiusCount'));
-			$this->assertTrue($MelissaDataReflection->hasMethod('getRadiusBuyList'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getZipCodeCount'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getZipcodeBuyList'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getCityCount'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getCityBuyList'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getCountyCount'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getCountyBuyList'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getRadiusCount'));
+			// $this->assertTrue($MelissaDataReflection->hasMethod('getRadiusBuyList'));
 		}
 
 		/**
